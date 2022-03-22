@@ -1,6 +1,6 @@
 <resources>
     <!-- Title of app -->
-    <string name="app_name">Task 1: Activity Life cycle</string>
+    <string name="app_name">Task 2: Activity Life cycle</string>
 
     <!-- Title of second activity -->
     <string name="activity2_name">Second Activity</string>
