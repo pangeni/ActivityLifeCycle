@@ -28,4 +28,3 @@
 -horizontal
 ![alt text](s2.png)
 
-
