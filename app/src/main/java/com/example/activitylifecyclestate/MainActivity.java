@@ -34,20 +34,23 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
+//    Launch SecondActivity Handles the onClick for the "Send" button. Gets the value of the main EditText,
+//    creates an intent, and launches the second activity with that intent.
+//    The return intent from the second activity is onActivityResult().
     public void launchSecondActivity(View view) {
 
         Intent intent = new Intent(this, SecondActivity.class);
 
         startActivityForResult(intent, TEXT_REQUEST);
     }
-
+//   onSaveInstanceState helps to store value when its rotate.
     @Override
     protected void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
         savedInstanceState.putSerializable("list", items.getItems());
     }
 
+//    onActivityResult Handles the data in the return intent from SecondActivity.
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

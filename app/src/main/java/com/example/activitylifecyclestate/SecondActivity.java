@@ -19,6 +19,7 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
     }
 
+//    addItem Handles the onClick for the each button in second Activity. the second Activity  send the reply intent value to the Main Activity.
     public void addItem (View view) {
         Intent replyIntent=new Intent();
         String message=((Button)view).getText().toString();
