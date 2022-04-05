@@ -1,46 +1,49 @@
 package com.example.activitylifecyclestate;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.content.Intent;
 import android.view.View;
-import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private Button button1, button2;
-    private TextView text;
-    private int count;
-    public static final String EXTRA_MESSAGE =
-            "com.example.android.twoactivities.extra.MESSAGE";
+    private int mCount = 0;
+    private TextView mShowCount;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mShowCount = (TextView) findViewById(R.id.view_count);
+        if (savedInstanceState != null) {
+            mCount = savedInstanceState.getInt("count");
+            mShowCount.setText(""+ mCount);
+        }
 
-        button1 = findViewById(R.id.btn_score);
-        button2 = findViewById(R.id.btn_toast);
-
-        text = findViewById(R.id.show_count);
-
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                count++;
-                text.setText("" + count);
-            }
-        });
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                intent.putExtra(EXTRA_MESSAGE,  ""+count);
-                startActivity(intent);
-            }
-        });
+    }
+    public void countUp(View view) {
+        mCount++;
+        if (mShowCount != null)
+            mShowCount.setText(Integer.toString(mCount));
+    }
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        EditText text = findViewById(R.id.EditText);
+        CharSequence data = text.getText();
+        outState.putCharSequence("data", data );
+        outState.putInt("count",mCount);
 
     }
 
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        CharSequence data = savedInstanceState.getCharSequence("data");
+        EditText text = findViewById(R.id.EditText);
+        text.setText(data);
+    }
 }

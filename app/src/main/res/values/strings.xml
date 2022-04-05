@@ -1,7 +1,6 @@
 <resources>
-    <string name="app_name">Intent and Activities HomeWork</string>
-    <string name="say_hello_toast">Say Hello Toast</string>
-    <string name="count_hello">Count Hello</string>
-    <string name="text_view">text_view</string>
-    <string name="text_Value">0</string>
+    <string name="app_name">ActivityLifecycle Counter Homework</string>
+    <string name="ShowCount">0</string>
+    <string name="count">Count</string>
+    <string name="comment_here">Comment Here</string>ss
 </resources>
