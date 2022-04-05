@@ -1,4 +1,6 @@
 # Shopping List Coding Challenge
+## App Overview
+![alt text](CC.gif)
 
 ###  Shop main page to check the item user have to click check shop.
 ![alt text](m1.png)
